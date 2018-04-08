@@ -15,8 +15,13 @@ router.get('/userslist/', function (req, res, next) {
     var collection = db.get('usercollection');
     collection.find({}, {}, function (e, docs) {
         res.render('userlist', {
-            'userlist': docs
+            'userlist': docs,
+            'title':'User list',
         });
     });
+});
+
+router.get('/newuser',function (req, res) {
+    res.render('newuser',{title:'Add new user'});
 });
 module.exports = router;
